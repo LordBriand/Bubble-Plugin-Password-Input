@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Password Plugin / Plugin de Mot de Passe Sécurisé</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero {
+            background-color: #f4f4f4;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .hero-content {
+            max-width: 600px;
+            margin: auto;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .feature-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .section {
+            margin-top: 50px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4ecdc4;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #languageToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="languageToggle" onclick="toggleLanguage()">
+        <i class="fas fa-globe"></i>
+    </div>
+
+    <div class="container" id="content">
+        <!-- Content will be dynamically inserted here -->
+    </div>
+
+    <script>
+        const translations = {
+            en: `
+                
+               <!--
+                <div>
+                    <h1 id="mainTitle" class="gradient-text">Secure Password Plugin</h1>
+                    <div>
+                        🌐
+                        💡
+                    </div>
+                </div>
+               -->
+
+                <div class="section hero animate-fade-in">
+                    <div class="hero-content">
+                        <h2>Secure Your Bubble.io Application</h2>
+                        <p>Enhance security and user experience with our advanced password field plugin.</p>
+                        <a href="#" class="btn">Get Started</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://1d93898c5525e6da7cdde182c5ff4055.cdn.bubble.io/f1726793344079x930176321874430300/nocode%20afrique-fotor-2024092004550.png" alt="Secure Password Plugin">
+                    </div>
+                </div>
+
+                <div class="section feature-grid">
+                    <div class="feature-card">
+                        <h3>Real-Time Evaluation</h3>
+                        <p>Instantly calculates and displays the strength of the entered password.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Visual Feedback</h3>
+                        <p>Changes the border color of the field based on password strength.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Visibility Indicator</h3>
+                        <p>Allows users to see their password without compromising security.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Custom States</h3>
+                        <p>Provides states for password value, strength, and visibility status.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Installation</h2>
+                    <ol>
+                        <li>In your Bubble.io project, go to "Plugins" in the left menu.</li>
+                        <li>Search for "Password Input" and click "Install".</li>
+                        <li>Once installed, you can add the plugin to your page like any other element.</li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>Usage</h2>
+                    <h3>Field Placement</h3>
+                    <p>Drag and drop the plugin onto your page where you want the password field to appear.</p>
+                    <h3>Customization</h3>
+                    <p>In the property editor, you can:</p>
+                    <ul>
+                        <li>Modify the placeholder text</li>
+                        <li>Adjust the width and height of the field</li>
+                        <li>Customize styles to match your design</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Accessing States</h2>
+                    <p>The plugin exposes three main states:</p>
+                    <ul>
+                        <li><code>value</code>: The current value of the password field</li>
+                        <li><code>strength</code>: A number from 0 to 100 representing the password strength</li>
+                        <li><code>is_visible</code>: A boolean indicating if the user has "enabled" password visibility</li>
+                    </ul>
+                    <p>You can use these states in your workflows to:</p>
+                    <ul>
+                        <li>Validate forms</li>
+                        <li>Display custom messages based on password strength</li>
+                        <li>Implement custom security rules</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Workflow Example</h2>
+                    <ol>
+                        <li>Create a "Sign Up" button on your page.</li>
+                        <li>In the button's workflow:</li>
+                        <li>Condition: If \`Password Input's strength\` is less than 50</li>
+                        <li>Action if True: Display a message "Please choose a stronger password"</li>
+                        <li>Action if False: Proceed with registration</li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>How is the Password Strength Calculated?</h2>
+                    <p>The strength is calculated using the same criteria as Bubble.io:</p>
+                    <ul>
+                        <li>When an alphanumeric character is entered, the strength value is incremented by 10%</li>
+                        <li>When the number of characters reaches 8, it is incremented by 35%</li>
+                        <li>When a number is entered, it is incremented by 10%</li>
+                        <li>When an uppercase letter is added, it is incremented by 20%</li>
+                        <li>When a non-alphanumeric character is entered, it is incremented by 35%</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Benefits</h2>
+                    <ul>
+                        <li>Enhanced Security: Encourages users to create strong passwords.</li>
+                        <li>Improved UX: Provides instant feedback to users.</li>
+                        <li>Flexibility: Easily integrates into your existing workflows.</li>
+                        <li>Performance: Lightweight and fast, doesn't affect your application's loading times.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Support</h2>
+                    <p>For any questions or assistance, don't hesitate to contact us:</p>
+                    <ul>
+                        <li>Via the Bubble.io community forum</li>
+                        <li>By email at geekbriand@proton.me</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Conclusion</h2>
+                    <p>Our secure password field plugin is the ideal tool to strengthen the security of your Bubble.io application while offering a smooth and intuitive user experience. Try it today and see for yourself the difference it can make to your project!</p>
+                </div>
+            `,
+            fr: `
+                <!--
+                  <div>
+                    <h1 id="mainTitle" class="gradient-text">Plugin de Mot de Passe Sécurisé</h1>
+                    <div>
+                        🌐
+                        💡
+                    </div>
+                </div>
+                -->
+
+                <div class="section hero animate-fade-in">
+                    <div class="hero-content">
+                        <h2>Sécurisez votre application Bubble.io</h2>
+                        <p>Améliorez la sécurité et l'expérience utilisateur avec notre plugin de champ de mot de passe avancé.</p>
+                        <a href="#" class="btn">Commencer</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://1d93898c5525e6da7cdde182c5ff4055.cdn.bubble.io/f1726793344079x930176321874430300/nocode%20afrique-fotor-2024092004550.png" alt="Plugin de mot de passe sécurisé">
+                    </div>
+                </div>
+
+                <div class="section feature-grid">
+                    <div class="feature-card">
+                        <h3>Évaluation en Temps Réel</h3>
+                        <p>Calcule et affiche instantanément la force du mot de passe saisi.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Retour Visuel</h3>
+                        <p>Change la couleur de la bordure du champ en fonction de la force du mot de passe.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Indicateur de Visibilité</h3>
+                        <p>Permet aux utilisateurs de voir leur mot de passe sans compromettre la sécurité.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>États Personnalisés</h3>
+                        <p>Fournit des états pour la valeur du mot de passe, sa force, et son statut de visibilité.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Installation</h2>
+                    <ol>
+                        <li>Dans votre projet Bubble.io, allez dans "Plugins" dans le menu de gauche.</li>
+                        <li>Recherchez "Password Input" et cliquez sur "Install".</li>
+                        <li>Une fois installé, vous pouvez ajouter le plugin à votre page comme n'importe quel autre élément.</li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>Utilisation</h2>
+                    <h3>Placement du Champ</h3>
+                    <p>Glissez-déposez le plugin sur votre page là où vous souhaitez que le champ de mot de passe apparaisse.</p>
+                    <h3>Personnalisation</h3>
+                    <p>Dans l'éditeur de propriétés, vous pouvez :</p>
+                    <ul>
+                        <li>Modifier le texte placeholder</li>
+                        <li>Ajuster la largeur et la hauteur du champ</li>
+                        <li>Personnaliser les styles pour qu'ils correspondent à votre design</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Accès aux États</h2>
+                    <p>Le plugin expose trois états principaux :</p>
+                    <ul>
+                        <li><code>value</code> : La valeur actuelle du champ de mot de passe</li>
+                        <li><code>strength</code> : Un nombre de 0 à 100 représentant la force du mot de passe</li>
+                        <li><code>is_visible</code> : Un booléen indiquant si l'utilisateur a "activé" la visibilité du mot de passe</li>
+                    </ul>
+                    <p>Vous pouvez utiliser ces états dans vos workflows pour :</p>
+                    <ul>
+                        <li>Valider les formulaires</li>
+                        <li>Afficher des messages personnalisés basés sur la force du mot de passe</li>
+                        <li>Implémenter des règles de sécurité personnalisées</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Exemple de Workflow</h2>
+                    <ol>
+                        <li>Créez un bouton "S'inscrire" sur votre page.</li>
+                        <li>Dans le workflow du bouton :</li>
+                        <li>Condition : Si \`Password Input's strength\` est inférieur à 50</li>
+                        <li>Action si Vrai : Afficher un message "Veuillez choisir un mot de passe plus fort"</li>
+                        <li>Action si Faux : Procéder à l'inscription</li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>Comment se fait le calcul de la Force du Mot de Passe ?</h2>
+                    <p>La force est calculée selon les mêmes critères qu'utilisent Bubble.io :</p>
+                    <ul>
+                        <li>Lorsqu'un caractère alphanumérique est entré, la valeur de strength est incrémentée de 10%</li>
+                        <li>Lorsque le nombre de caractères atteint 8, elle est incrémentée de 35%</li>
+                        <li>Lorsqu'un nombre est entré, elle est incrémentée de 10%</li>
+                        <li>Lorsqu'une lettre majuscule est ajoutée, elle est incrémentée de 20%</li>
+                        <li>Lorsqu'un caractère non alphanumérique est saisi, elle est incrémentée de 35%</li>
+                    </ul>
+                </div>
+
+               <div class="section">
+                    <h2>Avantages</h2>
+                    <ul>
+                        <li>Sécurité Renforcée : Encourage les utilisateurs à créer des mots de passe forts.</li>
+                        <li>UX Améliorée : Fournit un retour instantané aux utilisateurs.</li>
+                        <li>Flexibilité : S'intègre facilement dans vos workflows existants.</li>
+                        <li>Performance : Léger et rapide, n'affecte pas les temps de chargement de votre application.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Support</h2>
+                    <p>Pour toute question ou assistance, n'hésitez pas à nous contacter :</p>
+                    <ul>
+                        <li>Via le forum de la communauté Bubble.io</li>
+                        <li>Par email à geekbriand@proton.me</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Conclusion</h2>
+                    <p>Notre plugin de champ de mot de passe sécurisé est l'outil idéal pour renforcer la sécurité de votre application Bubble.io tout en offrant une expérience utilisateur fluide et intuitive. Essayez-le dès aujourd'hui et constatez par vous-même la différence qu'il peut apporter à votre projet !</p>
+                </div>
+            `
+        };
+
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'fr' : 'en';
+            updateContent();
+        }
+
+        function updateContent() {
+            const contentElement = document.getElementById('content');
+            contentElement.innerHTML = translations[currentLanguage];
+        }
+
+        // Initial content update
+        updateContent();
+    </script>
+</body>
+</html>

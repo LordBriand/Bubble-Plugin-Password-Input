@@ -1,0 +1,14 @@
+{
+    "categories": {
+        "0": "email",
+        "1": "productivity",
+        "2": "technical",
+        "3": "data (things)",
+        "4": "payment"
+    },
+    "demo_page": "https://plug-14528.bubbleapps.io/version-test/password_input_v1?debug_mode=true",
+    "description": "Use this specially password input to improve user experience on your apps.\n  Its borders displays different colors according to the      password strength and It contains an eye-icon to show and hide the content",
+    "image": "//meta-q.cdn.bubble.io/f1726662849290x891884627082914400/password.png",
+    "name": "Password Input",
+    "plugin_instructions": "1) Installation\n\nIn your Bubble.io project, go to \"Plugins\" in the left menu.\nSearch for \"Password Input\" and click \"Install\".\nOnce installed, you can add the plugin to your page like any other element.\n\n2) Usage\n\n-Field Placement\nDrag and drop the plugin onto your page where you want the password field to appear.\n\n-Customization\nIn the property editor, you can:\nModify the placeholder text,\nAdjust the width and height of the field,\nCustomize styles to match your design,\nAccessing States,\n\n-The plugin exposes three main states:\n   value: The current value of the password field\n   strength: A number from 0 to 100 representing the password strength\n   is_visible: A boolean indicating if the user has \"enabled\" password visibility\n\nYou can use these states in your workflows to:\n * Validate forms\n * Display custom messages based on password strength\n * Implement custom security rules\n\nYou can see our online documentation to learn more \n"
+}
